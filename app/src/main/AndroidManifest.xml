@@ -20,8 +20,6 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
-
-
         >
 
 
