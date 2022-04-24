@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
     private lateinit var fragmentManager: FragmentManager
     private var photoInfo = ArrayList<PhotoInfo>()
-    lateinit var imagelink:String;
+    private var imagelink:String = "";
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,7 +86,8 @@ class MainActivity : AppCompatActivity() {
                     "Fragment2"
                 )
                 .commit()
-            getMethod()
+            Log.i("imagelink", imagelink)
+            getMethod(imagelink)
         }
         if (Integer.parseInt(v.getTag().toString()) == 3) {
             fragmentManager
@@ -212,7 +213,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-    fun getMethod() {
+    fun getMethod(imagelink: String) {
         Thread(Runnable {
 
         // Create Retrofit
@@ -230,7 +231,7 @@ class MainActivity : AppCompatActivity() {
              */
 
             // Do the GET request and get response
-            val response = service.getFromBing(imagelink)
+            val response = service.getFromBing(this@MainActivity.imagelink)
             //val response = service.getFromGoogle(imagelink)
            // val response = service.getFromTineye(imagelink)
 
